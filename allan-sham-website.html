@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allan Sham Property Management - Simple. Direct. Honest. No BS.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: #F9FAFB;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #111827;
+            color: white;
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #F59E0B;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #F59E0B;
+        }
+
+        .cta-btn {
+            background: #F59E0B;
+            color: #111827;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #fbbf24;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #111827 0%, #374151 100%);
+            color: white;
+            padding: 6rem 5% 8rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: #F59E0B;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: #E5E7EB;
+        }
+
+        .hero .cta-btn {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtext {
+            font-size: 1.15rem;
+            color: #F59E0B;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #111827;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6B7280;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Why Choose Allan */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: #111827;
+            margin-bottom: 0.8rem;
+        }
+
+        .value-card p {
+            color: #6B7280;
+        }
+
+        .callout-box {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .callout-box h4 {
+            color: #92400E;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .callout-box p {
+            color: #78350F;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #6B7280;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #F59E0B;
+            font-weight: bold;
+        }
+
+        /* Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .step-number {
+            background: #F59E0B;
+            color: #111827;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            color: #111827;
+            margin-bottom: 0.8rem;
+        }
+
+        .step p {
+            color: #6B7280;
+        }
+
+        /* About Allan */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: #E5E7EB;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6B7280;
+            font-style: italic;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #111827;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #E5E7EB;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section .cta-btn {
+            font-size: 1.2rem;
+            padding: 1.2rem 3rem;
+        }
+
+        .cta-section .note {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #F59E0B;
+            font-weight: 600;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #111827;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #F59E0B;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #F59E0B;
+            color: #111827;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #fbbf24;
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .contact-info h3 {
+            color: #111827;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #111827;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item a {
+            color: #F59E0B;
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #E5E7EB;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #F59E0B;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Allan Sham PM</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-btn">Free Rent Analysis</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Simple. Direct. Honest. <span class="highlight">No BS</span> Property Management.</h1>
+            <p>When you work with me, you work directly with me—not an assistant, not a call center. I personally manage every property to ensure fast communication, reliable results, and peace of mind for every owner.</p>
+            <a href="#contact" class="cta-btn">Get Your Free Rent Analysis</a>
+            <p class="subtext">⚡ Only 5 clients accepted monthly — spots fill fast</p>
+        </div>
+    </section>
+
+    <!-- About Allan -->
+    <section id="about">
+        <div class="about-content">
+            <div class="about-image">
+                [Your Photo Here]
+            </div>
+            <div class="about-text">
+                <h2>Meet Allan Sham</h2>
+                <p>I manage homes and condos across Metro Vancouver with one clear promise: you'll always deal directly with me.</p>
+                <p>No departments, no gatekeepers—just honest, responsive management from the person whose name is on the business.</p>
+                <p>I keep my management portfolio intentionally small so every client gets direct attention, honest communication, and dependable results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Allan -->
+    <section id="why">
+        <h2>Why Owners Choose Me</h2>
+        <p class="section-intro">Property management done right—with direct communication, honest updates, and reliable care.</p>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Direct</h3>
+                <p>You deal only with me—no layers, no confusion. Every call, email, and update comes directly from Allan.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💬</div>
+                <h3>Honest</h3>
+                <p>Clear communication and straightforward pricing. No hidden fees, no surprises.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">⚡</div>
+                <h3>Reliable</h3>
+                <p>I handle issues fast and keep you fully informed. Calls answered, tenants cared for, always.</p>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <h2>What I Handle for You</h2>
+        <p class="section-intro">Full-service management designed for owners who value clarity and accountability.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Tenant Placement</h3>
+                <p>Careful screening and fair leasing to minimize vacancy and maximize quality.</p>
+                <ul>
+                    <li>Professional listing photography and copywriting</li>
+                    <li>Multi-platform marketing</li>
+                    <li>Comprehensive tenant screening</li>
+                    <li>Lease preparation and signing</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Full Property Management</h3>
+                <p>Complete hands-off management including rent collection, financial reporting, and tenant relations.</p>
+                <ul>
+                    <li>Monthly rent collection</li>
+                    <li>Detailed financial statements</li>
+                    <li>Regular property inspections</li>
+                    <li>Lease renewals and tenant communication</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Maintenance & Repairs</h3>
+                <p>Fast coordination with trusted contractors, transparent pricing, and preventative care.</p>
+                <ul>
+                    <li>24/7 emergency response</li>
+                    <li>Vetted contractor network</li>
+                    <li>Transparent cost estimates</li>
+                    <li>Preventative maintenance scheduling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process">
+        <h2>How It Works — Straightforward & Personal</h2>
+        <p class="section-intro">Every step, you'll deal directly with me.</p>
+        
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Discovery Call</h3>
+                <p>We talk about your property and your goals in a straightforward conversation.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Onboarding</h3>
+                <p>I personally handle all setup, property inspection, and documentation.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Tenant Placement</h3>
+                <p>Professional marketing and thorough screening to find reliable tenants quickly.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Ongoing Management</h3>
+                <p>Direct updates from Allan, rent collection, maintenance coordination, and clear monthly reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Allan -->
+    <section id="about">
+        <div class="about-content">
+            <div class="about-image">
+                [Your Photo Here]
+            </div>
+            <div class="about-text">
+                <h2>Meet Allan Sham</h2>
+                <p>I manage homes and condos across Metro Vancouver with one clear promise: you'll always deal directly with me.</p>
+                <p>No departments, no gatekeepers—just honest, responsive management from the person whose name is on the business.</p>
+                <p>I keep my management portfolio intentionally small so every client gets direct attention, honest communication, and dependable results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to make your rental stress-free?</h2>
+        <p>Let's start with a free rent analysis and see if we're a good fit to work together.</p>
+        <a href="#contact" class="cta-btn">Get Your Free Rent Analysis</a>
+        <p class="note">I personally manage every client and only take on a limited number of new properties each month.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Let's Talk About Your Property</h2>
+        <p class="section-intro">Fill out the form below for your free rent analysis or to ask a question.</p>
+        
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Property Address (Optional)</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3>Direct Contact</h3>
+                
+                <div class="info-item">
+                    <strong>📧 Email</strong>
+                    <a href="mailto:allanshampm@gmail.com">allanshampm@gmail.com</a>
+                </div>
+
+                <div class="info-item">
+                    <strong>📞 Phone</strong>
+                    <a href="tel:6047167511">604-716-7511</a>
+                </div>
+
+                <div class="info-item">
+                    <strong>📍 Service Area</strong>
+                    <p>Serving Metro Vancouver — including Vancouver, Burnaby, Richmond, Coquitlam, New Westminster, and the North Shore.</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>🔗 Connect</strong>
+                    <p>
+                        <a href="#" target="_blank">LinkedIn</a> • 
+                        <a href="#" target="_blank">Instagram</a> • 
+                        <a href="#" target="_blank">Facebook</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Allan Sham Property Management</strong></p>
+        <p>Sutton Group - MetroLand Realty</p>
+        <p>Serving Metro Vancouver — Vancouver, Burnaby, Richmond, Coquitlam, New Westminster, North Shore</p>
+        <p><a href="mailto:allanshampm@gmail.com">allanshampm@gmail.com</a> • <a href="tel:6047167511">604-716-7511</a></p>
+        <p style="margin-top: 1.5rem;">&copy; 2025 Allan Sham Property Management. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                message: document.getElementById('message').value
+            };
+
+            // Here you would normally send to your API
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            alert('Thank you! Your message has been received. Allan will respond within 24 hours.');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
