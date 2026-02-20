@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allan Sham Property Management - Simple, Direct, Personalized Property Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:wght@300;400;600&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -230,6 +230,17 @@
             background: #f2e8d5;
         }
 
+        #services h2 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px #2d1f0e;
+            text-shadow: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
         /* Process — dark navy */
         #process {
             background: #241c10;
@@ -432,42 +443,92 @@
         /* Services */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
         .service-card {
-            background: #fffaf4;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border: 1px solid #e0d4bc;
+            background: #28211a;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #a07828, #d4a843, #f0c060, #d4a843, #a07828);
+        }
+
+        .service-card::after {
+            content: attr(data-icon);
+            position: absolute;
+            bottom: -1rem; right: -0.5rem;
+            font-size: 8rem;
+            opacity: 0.06;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .service-card-inner {
+            padding: 2.8rem 2.5rem;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 1.2rem;
         }
 
         .service-card h3 {
-            font-size: 1.6rem;
-            color: #2d1f0e;
-            margin-bottom: 1rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 0.08em;
+            color: #f5ece0;
+            margin-bottom: 0.8rem;
+            line-height: 1;
         }
 
-        .service-card p {
+        .service-card .service-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: #c8a870;
             margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
         }
 
         .service-card ul {
             list-style: none;
             padding-left: 0;
+            margin-top: auto;
+            border-top: 1px solid #3d2e1a;
+            padding-top: 1.2rem;
         }
 
         .service-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.45rem 0;
+            padding-left: 1.4rem;
             position: relative;
-            color: #7a6248;
+            color: #a08060;
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 0.03em;
+            line-height: 1.6;
         }
 
-        .service-card li:before {
-            content: "✓";
+        .service-card li::before {
+            content: "—";
             position: absolute;
             left: 0;
             color: #d4a843;
@@ -828,37 +889,46 @@
         <p class="section-intro">Full-service management designed for owners who value clarity and accountability.</p>
         
         <div class="services-grid">
-            <div class="service-card">
-                <h3>Tenant Placement</h3>
-                <p>Careful screening and fair leasing to minimize vacancy and maximize quality.</p>
-                <ul>
-                    <li>Professional listing photography and copywriting</li>
-                    <li>Multi-platform marketing</li>
-                    <li>Comprehensive tenant screening</li>
-                    <li>Lease preparation and signing</li>
-                </ul>
+            <div class="service-card" data-icon="🏠">
+                <div class="service-card-inner">
+                    <span class="service-icon">🏠</span>
+                    <h3>Tenant Placement</h3>
+                    <p class="service-desc">Careful screening and fair leasing to minimize vacancy and maximize quality.</p>
+                    <ul>
+                        <li>Professional listing photography and copywriting</li>
+                        <li>Multi-platform marketing</li>
+                        <li>Comprehensive tenant screening</li>
+                        <li>Lease preparation and signing</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="service-card">
-                <h3>Full Property Management</h3>
-                <p>Complete hands-off management including rent collection, financial reporting, and tenant relations.</p>
-                <ul>
-                    <li>Monthly rent collection</li>
-                    <li>Detailed financial statements</li>
-                    <li>Regular property inspections</li>
-                    <li>Lease renewals and tenant communication</li>
-                </ul>
+            <div class="service-card" data-icon="📋">
+                <div class="service-card-inner">
+                    <span class="service-icon">📋</span>
+                    <h3>Full Property Management</h3>
+                    <p class="service-desc">Complete hands-off management including rent collection, financial reporting, and tenant relations.</p>
+                    <ul>
+                        <li>Monthly rent collection</li>
+                        <li>Detailed financial statements</li>
+                        <li>Regular property inspections</li>
+                        <li>Lease renewals and tenant communication</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="service-card">
-                <h3>Maintenance & Repairs</h3>
-                <p>Fast coordination with trusted contractors, transparent pricing, and preventative care.</p>
-                <ul>
-                    <li>24/7 emergency response</li>
-                    <li>Vetted contractor network</li>
-                    <li>Transparent cost estimates</li>
-                    <li>Preventative maintenance scheduling</li>
-                </ul>
+            <div class="service-card" data-icon="🔧">
+                <div class="service-card-inner">
+                    <span class="service-icon">🔧</span>
+                    <h3>Maintenance & Repairs</h3>
+                    <p class="service-desc">Fast coordination with trusted contractors, transparent pricing, and preventative care.</p>
+                    <ul>
+                        <li>24/7 emergency response</li>
+                        <li>Vetted contractor network</li>
+                        <li>Transparent cost estimates</li>
+                        <li>Preventative maintenance scheduling</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
