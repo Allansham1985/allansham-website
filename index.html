@@ -272,15 +272,6 @@
             background: #f5f0e8;
         }
 
-        #about h2 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #3d2e1a;
-            text-shadow: none;
-            letter-spacing: normal;
-        }
-
         /* CTA — dark navy */
         .cta-section {
             background: #28211a;
@@ -452,92 +443,42 @@
         /* Services */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
         .service-card {
-            background: #28211a;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #a07828, #d4a843, #f0c060, #d4a843, #a07828);
-        }
-
-        .service-card::after {
-            content: attr(data-icon);
-            position: absolute;
-            bottom: -1rem; right: -0.5rem;
-            font-size: 8rem;
-            opacity: 0.06;
-            pointer-events: none;
-            line-height: 1;
-        }
-
-        .service-card-inner {
-            padding: 2.8rem 2.5rem;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-icon {
-            font-size: 2.2rem;
-            display: block;
-            margin-bottom: 1.2rem;
+            background: #fffaf4;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e0d4bc;
         }
 
         .service-card h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 0.08em;
-            color: #f5ece0;
-            margin-bottom: 0.8rem;
-            line-height: 1;
+            font-size: 1.6rem;
+            color: #2d1f0e;
+            margin-bottom: 1rem;
         }
 
-        .service-card .service-desc {
-            font-size: 1rem;
-            font-weight: 300;
-            line-height: 1.8;
-            color: #c8a870;
+        .service-card p {
             margin-bottom: 1.5rem;
-            letter-spacing: 0.03em;
         }
 
         .service-card ul {
             list-style: none;
             padding-left: 0;
-            margin-top: auto;
-            border-top: 1px solid #3d2e1a;
-            padding-top: 1.2rem;
         }
 
         .service-card li {
-            padding: 0.45rem 0;
-            padding-left: 1.4rem;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
             position: relative;
-            color: #a08060;
-            font-size: 0.95rem;
-            font-weight: 300;
-            letter-spacing: 0.03em;
-            line-height: 1.6;
+            color: #7a6248;
         }
 
-        .service-card li::before {
-            content: "—";
+        .service-card li:before {
+            content: "✓";
             position: absolute;
             left: 0;
             color: #d4a843;
@@ -802,7 +743,166 @@
                 height: 300px;
             }
         }
-    </style>
+    
+
+        /* ==============================
+           Mobile Responsiveness Upgrades
+           ============================== */
+
+        /* Keep images and embedded media fluid */
+        img, svg, video {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Prevent horizontal scroll from long shadows / transforms */
+        html, body {
+            overflow-x: hidden;
+        }
+
+        /* Mobile nav */
+        .menu-toggle {
+            display: none;
+            border: 1px solid rgba(212,168,67,0.45);
+            background: rgba(0,0,0,0.12);
+            color: #d4a843;
+            font-size: 1.4rem;
+            line-height: 1;
+            padding: 0.55rem 0.75rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform .15s ease, background .2s ease;
+        }
+        .menu-toggle:active { transform: scale(0.98); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+        }
+
+        @media (max-width: 980px) {
+            /* Global spacing */
+            section {
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+            }
+
+            /* Hero text scale */
+            .hero h1 {
+                font-size: clamp(2.2rem, 6vw, 3.2rem) !important;
+                line-height: 1.05 !important;
+            }
+            .hero p {
+                font-size: 1.05rem !important;
+            }
+
+            /* Grids stack */
+            .values-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.1rem !important;
+            }
+            .services-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem !important;
+            }
+            .about-content {
+                grid-template-columns: 1fr !important;
+                padding: 2rem !important;
+            }
+            .contact-container {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            /* Cards padding */
+            .service-card,
+            .contact-form {
+                padding: 1.6rem !important;
+            }
+        }
+
+        @media (max-width: 860px) {
+            /* Header/nav: collapse into hamburger */
+            header nav {
+                position: relative;
+                gap: 0.75rem !important;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-right {
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                left: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.9rem;
+                padding: 1rem;
+                border-radius: 14px;
+                background: rgba(40,33,26,0.98);
+                border: 1px solid rgba(212,168,67,0.25);
+                box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+                z-index: 999;
+            }
+
+            header.nav-open .nav-right {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.75rem !important;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.55rem 0.6rem;
+                border-radius: 10px;
+            }
+
+            .nav-links a:hover {
+                background: rgba(212,168,67,0.12);
+            }
+
+            .cta-btn {
+                width: 100%;
+                text-align: center;
+                padding: 0.85rem 1rem !important;
+            }
+        }
+
+        @media (max-width: 560px) {
+            /* Make big stylized headers fit */
+            h2 {
+                font-size: clamp(2.1rem, 9vw, 3.1rem) !important;
+                letter-spacing: 1px !important;
+            }
+
+            /* Special “What I Handle for You” header (Big Shoulders) */
+            .services h2, .services-section h2, #services h2 {
+                font-size: clamp(2.4rem, 10vw, 3.2rem) !important;
+                -webkit-text-stroke-width: 1.5px !important;
+            }
+
+            /* Reduce heavy shadow effect so it doesn't look blurry on small screens */
+            .metallic-title, h2.metallic-title {
+                text-shadow: 1px 1px 0 #c8941a, 2px 2px 0 #b07810, 3px 3px 0 #906008, 0 10px 18px rgba(0,0,0,0.45) !important;
+            }
+
+            /* Hero spacing */
+            .hero {
+                min-height: 520px !important;
+            }
+        }
+
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -833,6 +933,8 @@
                     <span class="logo-sub">Property Management</span>
                 </div>
             </div>
+            <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">☰</button>
+            <div class="nav-right" id="primary-nav">
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -841,6 +943,7 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#contact" class="cta-btn">Free Rent Analysis</a>
+            </div>
         </nav>
     </header>
 
@@ -898,46 +1001,37 @@
         <p class="section-intro">Full-service management designed for owners who value clarity and accountability.</p>
         
         <div class="services-grid">
-            <div class="service-card" data-icon="🏠">
-                <div class="service-card-inner">
-                    <span class="service-icon">🏠</span>
-                    <h3>Tenant Placement</h3>
-                    <p class="service-desc">Careful screening and fair leasing to minimize vacancy and maximize quality.</p>
-                    <ul>
-                        <li>Professional listing photography and copywriting</li>
-                        <li>Multi-platform marketing</li>
-                        <li>Comprehensive tenant screening</li>
-                        <li>Lease preparation and signing</li>
-                    </ul>
-                </div>
+            <div class="service-card">
+                <h3>Tenant Placement</h3>
+                <p>Careful screening and fair leasing to minimize vacancy and maximize quality.</p>
+                <ul>
+                    <li>Professional listing photography and copywriting</li>
+                    <li>Multi-platform marketing</li>
+                    <li>Comprehensive tenant screening</li>
+                    <li>Lease preparation and signing</li>
+                </ul>
             </div>
 
-            <div class="service-card" data-icon="📋">
-                <div class="service-card-inner">
-                    <span class="service-icon">📋</span>
-                    <h3>Full Property Management</h3>
-                    <p class="service-desc">Complete hands-off management including rent collection, financial reporting, and tenant relations.</p>
-                    <ul>
-                        <li>Monthly rent collection</li>
-                        <li>Detailed financial statements</li>
-                        <li>Regular property inspections</li>
-                        <li>Lease renewals and tenant communication</li>
-                    </ul>
-                </div>
+            <div class="service-card">
+                <h3>Full Property Management</h3>
+                <p>Complete hands-off management including rent collection, financial reporting, and tenant relations.</p>
+                <ul>
+                    <li>Monthly rent collection</li>
+                    <li>Detailed financial statements</li>
+                    <li>Regular property inspections</li>
+                    <li>Lease renewals and tenant communication</li>
+                </ul>
             </div>
 
-            <div class="service-card" data-icon="🔧">
-                <div class="service-card-inner">
-                    <span class="service-icon">🔧</span>
-                    <h3>Maintenance & Repairs</h3>
-                    <p class="service-desc">Fast coordination with trusted contractors, transparent pricing, and preventative care.</p>
-                    <ul>
-                        <li>24/7 emergency response</li>
-                        <li>Vetted contractor network</li>
-                        <li>Transparent cost estimates</li>
-                        <li>Preventative maintenance scheduling</li>
-                    </ul>
-                </div>
+            <div class="service-card">
+                <h3>Maintenance & Repairs</h3>
+                <p>Fast coordination with trusted contractors, transparent pricing, and preventative care.</p>
+                <ul>
+                    <li>24/7 emergency response</li>
+                    <li>Vetted contractor network</li>
+                    <li>Transparent cost estimates</li>
+                    <li>Preventative maintenance scheduling</li>
+                </ul>
             </div>
         </div>
     </section>
