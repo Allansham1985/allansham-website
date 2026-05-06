@@ -1178,70 +1178,6 @@
 
     <!-- Footer -->
     <footer>
-        <!-- Rent Analysis Modal -->
-    <div id="rentAnalysisModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeRentAnalysisModal()">&times;</button>
-            <h2>Free Rent Analysis</h2>
-            <p class="form-intro">Get a clear estimate of your property's rental potential. Fill out the details below and I'll personally review your property.</p>
-            
-            <form action="https://formspree.io/f/mjglrajv" method="POST" id="rentAnalysisForm">
-                <div class="form-group">
-                    <label for="ra-name">Name *</label>
-                    <input type="text" id="ra-name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="ra-email">Email *</label>
-                    <input type="email" id="ra-email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="ra-phone">Phone *</label>
-                    <input type="tel" id="ra-phone" name="phone" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="ra-address">Property Address *</label>
-                    <input type="text" id="ra-address" name="address" placeholder="123 Main St, Vancouver, BC" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="ra-bedrooms">Number of Bedrooms</label>
-                    <input type="number" id="ra-bedrooms" name="bedrooms" min="0" placeholder="e.g., 2">
-                </div>
-
-                <div class="form-group">
-                    <label for="ra-bathrooms">Number of Bathrooms</label>
-                    <input type="number" id="ra-bathrooms" name="bathrooms" min="0" step="0.5" placeholder="e.g., 1.5">
-                </div>
-
-                <div class="form-group">
-                    <label for="ra-sqft">Square Feet</label>
-                    <input type="number" id="ra-sqft" name="square_feet" min="0" placeholder="e.g., 850">
-                </div>
-
-                <div class="form-group">
-                    <label for="ra-type">Property Type</label>
-                    <select id="ra-type" name="property_type">
-                        <option value="">Select type...</option>
-                        <option value="condo">Condo/Apartment</option>
-                        <option value="townhouse">Townhouse</option>
-                        <option value="single-family">Single-Family Home</option>
-                        <option value="duplex">Duplex</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="ra-details">Additional Details</label>
-                    <textarea id="ra-details" name="details" placeholder="Any other relevant information about your property..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Submit Rent Analysis Request</button>
-            </form>
-        </div>
-    </div>
         <p><strong>Allan Sham Property Management</strong></p>
         <p>Sutton Group - MetroLand Realty</p>
         <p>Serving Metro Vancouver — Vancouver, Burnaby, Richmond, Coquitlam, New Westminster, North Shore</p>
@@ -1262,37 +1198,7 @@
                 }
             });
         });
-// Rent Analysis Modal Functions
-        function openRentAnalysisModal() {
-            document.getElementById('rentAnalysisModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
 
-        function closeRentAnalysisModal() {
-            document.getElementById('rentAnalysisModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('rentAnalysisModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeRentAnalysisModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeRentAnalysisModal();
-            }
-        });
-
-        // Rent Analysis Form submission
-        document.getElementById('rentAnalysisForm').addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('.submit-btn');
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-        });
         // Form submission handler
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
